@@ -1,0 +1,23 @@
+<div style="display: flex;">
+    <form  [formGroup]="countryForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Country Name</mat-label>
+          <input matInput formControlName="countryName">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Select Confederation</mat-label>
+            <mat-select formControlName="selectFormControl">
+              <mat-option *ngFor="let c of confeds" [value]="c.confederationId">
+                {{c.confederationName}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button type="submit" color="primary" >
+            Submit
+        </button>
+    </form>
+    <button mat-raised-button (click)="cancel()" color="secondary" style="margin-top:20px;">
+        Cancel
+    </button>
+</div>
+    
